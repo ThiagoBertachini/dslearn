@@ -20,5 +20,8 @@ INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('2.0
 
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Trilha HTML', 'Trilha do curso', 1, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 1, 1);
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Forum', 'Tire suas dúvidas', 2, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 2, 1);
-INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Lives', 'Lives exclusivas para turma', 3, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 0, 1)
+INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Lives', 'Lives exclusivas para turma', 3, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 0, 1);
 
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 1', 'Vamos começar', 1, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 1, null);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 2', 'Vamos continuar', 2, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 1, 1);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 3', 'Vamos finalizar', 3, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 1, 2)
