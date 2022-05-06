@@ -24,4 +24,7 @@ INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) 
 
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 1', 'Vamos começar', 1, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 1, null);
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 2', 'Vamos continuar', 2, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 1, 1);
-INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 3', 'Vamos finalizar', 3, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 1, 2)
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 3', 'Vamos finalizar', 3, 'ABD/APMHuC5cu1W/JN8FyqP51/j+ypXFn96m+t9wVu4M/ucfi', 1, 2);
+
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, avaliable, only_Update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2020-07-15T13:00:00Z', null, true, false);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, avaliable, only_Update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2020-07-15T13:00:00Z', null, true, false)
