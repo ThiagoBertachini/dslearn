@@ -9,7 +9,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.devsuperior.dslearnbds.entities.User;
+import com.devsuperior.dslearnbds.entities.dto.UserDTO;
 import com.devsuperior.dslearnbds.repositories.UserRepository;
+import com.devsuperior.dslearnbds.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService implements UserDetailsService{
@@ -18,6 +20,11 @@ public class UserService implements UserDetailsService{
 	
 	@Autowired
 	private UserRepository repository;
+	
+	public UserDTO findById(Long id) {
+		return new UserDTO(repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado")));
+	}
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -30,5 +37,4 @@ public class UserService implements UserDetailsService{
 		logger.info("User found: " + username);
 		return user;
 	}
-
 }
