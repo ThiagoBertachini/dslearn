@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.devsuperior.dslearnbds.services.exceptions.DatabaseException;
+import com.devsuperior.dslearnbds.services.exceptions.ForbiddenException;
 import com.devsuperior.dslearnbds.services.exceptions.ResourceNotFoundException;
+import com.devsuperior.dslearnbds.services.exceptions.UnauthorizedException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
@@ -54,6 +56,22 @@ public class ResourceExceptionHandler {
 		for (FieldError f : e.getBindingResult().getFieldErrors()) {
 			err.addError(f.getField(), f.getDefaultMessage());
 		}
+		
+		return ResponseEntity.status(status).body(err);
+	}	
+	
+	@ExceptionHandler(ForbiddenException.class)
+	public ResponseEntity<OAuth2CustomError> forbidden(ForbiddenException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.FORBIDDEN;
+		OAuth2CustomError err = new OAuth2CustomError("Forbidden", e.getMessage());
+		
+		return ResponseEntity.status(status).body(err);
+	}	
+	
+	@ExceptionHandler(UnauthorizedException.class)
+	public ResponseEntity<OAuth2CustomError> unauthorized(UnauthorizedException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.UNAUTHORIZED;
+		OAuth2CustomError err = new OAuth2CustomError("Unauthorized", e.getMessage());
 		
 		return ResponseEntity.status(status).body(err);
 	}	

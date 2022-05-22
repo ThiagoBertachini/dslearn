@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import com.devsuperior.dslearnbds.entities.User;
 import com.devsuperior.dslearnbds.repositories.UserRepository;
 
+
 @Component
 public class JwtTokenEnhancer implements TokenEnhancer {
 
